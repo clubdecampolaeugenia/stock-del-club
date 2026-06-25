@@ -19,19 +19,11 @@
       --hueso:     #f5f3ec;
       --gris:      #48797c;
     }
-    body {
-      background: var(--petroleo);
-      font-family: 'Roboto', sans-serif;
-      color: var(--petroleo);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    body { background: var(--petroleo); font-family: 'Roboto', sans-serif; color: var(--petroleo); min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .screen { display: none; flex-direction: column; width: 100%; max-width: 480px; }
     .screen.active { display: flex; }
 
-    /* TOLDO INTERNO — imagen ya trae sombra */
+    /* TOLDO */
     .toldo-interno { width: 100%; line-height: 0; }
     .toldo-interno img { width: 100%; display: block; }
 
@@ -45,36 +37,23 @@
     .toldo-hero { width: 100%; display: block; }
     .hero-body { padding: 10px 0 24px; }
 
-    /* BADGE — minimalista, reducido */
-    .hero-badge { display: flex; justify-content: center; margin-bottom: 8px; }
-    .hero-badge-inner {
-      background: var(--lima);
-      border-radius: 4px;
-      padding: 3px 12px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: var(--petroleo);
-      text-transform: uppercase;
-    }
+    /* BADGE */
+    .hero-badge { display: flex; justify-content: center; margin-bottom: 14px; }
+    .hero-badge-inner { background: var(--lima); border-radius: 4px; padding: 3px 12px; font-family: 'Roboto', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 2px; color: var(--petroleo); text-transform: uppercase; }
 
-    /* LOGO — 75% del ancho, centrado */
+    /* LOGO */
     .hero-logo-wrap { display: flex; justify-content: center; padding: 0 12%; }
     .hero-logo { width: 100%; display: block; }
-
     .hero-desc { color: var(--hueso); font-size: 13px; line-height: 1.7; margin-top: 14px; margin-bottom: 8px; padding: 0 18px; }
     .hero-inst { color: var(--lima); font-size: 12px; font-style: italic; line-height: 1.6; padding: 0 18px; }
 
     /* SECCIONES */
-    .sec-crema    { background: var(--hueso);    padding: 20px 16px; width: 100%; }
+    .sec-crema    { background: var(--hueso); padding: 20px 16px; width: 100%; }
     .sec-petroleo { background: var(--petroleo); padding: 20px 16px; width: 100%; }
     .sec-title       { font-family: Impact, sans-serif; font-size: 18px; color: var(--petroleo); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
     .sec-sub         { font-size: 10px; color: var(--gris); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
     .sec-title-light { font-family: Impact, sans-serif; font-size: 18px; color: var(--lima); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
     .sec-sub-light   { font-size: 10px; color: var(--verdecl); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
-
-    /* DIVISOR */
     .divisor { border: none; border-top: 1px solid var(--gris); margin: 0; }
 
     /* GRILLA */
@@ -89,8 +68,19 @@
     .badge-sin    { position: absolute; top: 7px; right: 7px; background: #c0392b; color: #fff; font-size: 8px; font-weight: 700; padding: 2px 6px; border-radius: 10px; }
     .espera-btn   { background: transparent; border: 1.5px solid #888; border-radius: 8px; font-size: 10px; color: #666; padding: 5px; cursor: pointer; width: 100%; }
 
-    /* CARRITO */
-    .cart-bar { background: var(--naranja); border: 2px solid var(--petroleo); border-radius: 12px; padding: 14px; }
+    /* Indicador de selección en cajón */
+    .cajon-selected-badge {
+      position: absolute; top: 7px; left: 7px;
+      background: var(--verdecl); color: var(--petroleo);
+      font-size: 10px; font-weight: 700;
+      width: 22px; height: 22px; border-radius: 50%;
+      display: none; align-items: center; justify-content: center;
+      border: 1.5px solid var(--petroleo);
+    }
+    .cajon-selected-badge.visible { display: flex; }
+
+    /* CARRITO — verde claro */
+    .cart-bar { background: var(--verdecl); border: 2px solid var(--petroleo); border-radius: 12px; padding: 14px; }
     .cart-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .cart-bar-title  { font-family: Impact, sans-serif; font-size: 14px; color: var(--petroleo); letter-spacing: 1px; text-transform: uppercase; }
     .cart-bar-total  { font-family: Impact, sans-serif; font-size: 16px; color: var(--petroleo); }
@@ -100,10 +90,12 @@
     .cart-ctrl       { display: flex; align-items: center; gap: 6px; }
     .cart-ctrl button{ background: var(--petroleo); color: var(--naranja); border: none; border-radius: 50%; width: 32px; height: 32px; font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: 700; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .cart-ctrl span  { font-size: 14px; font-weight: 700; color: var(--petroleo); min-width: 20px; text-align: center; }
-    .btn-confirmar { display: block; width: 100%; background: transparent; color: var(--lima); font-family: Impact, sans-serif; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 14px; border-radius: 10px; border: 2px solid var(--lima); cursor: pointer; text-align: center; margin-top: 12px; }
 
-    /* RESUMEN CARRITO */
-    .cart-resumen { background: var(--naranja); border: 2px solid var(--petroleo); border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; }
+    /* Botón confirmar — naranja */
+    .btn-confirmar { display: block; width: 100%; background: var(--naranja); color: var(--petroleo); font-family: Impact, sans-serif; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 14px; border-radius: 10px; border: 2px solid var(--petroleo); cursor: pointer; text-align: center; margin-top: 12px; }
+
+    /* RESUMEN CARRITO — verde claro en internas */
+    .cart-resumen { background: var(--verdecl); border: 2px solid var(--petroleo); border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; }
     .cart-resumen-title { font-family: Impact, sans-serif; font-size: 12px; color: var(--petroleo); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; display: flex; justify-content: space-between; }
     .cart-resumen-item  { font-size: 11px; color: var(--petroleo); display: flex; justify-content: space-between; margin-bottom: 3px; }
     .cart-resumen-total { font-family: Impact, sans-serif; font-size: 14px; color: var(--petroleo); display: flex; justify-content: space-between; border-top: 1.5px solid var(--petroleo); padding-top: 6px; margin-top: 6px; }
@@ -115,16 +107,20 @@
     .btn-cgv      { background: var(--lima);    color: var(--petroleo); border-color: var(--petroleo); }
     .btn-lima-out { background: transparent;    color: var(--lima);     border-color: var(--lima); }
     .btn-blanco   { background: var(--blanco);  color: var(--petroleo); border-color: var(--petroleo); }
-    .btn-cancelar { background: var(--petroleo); color: var(--naranja); border-color: var(--naranja); }
+    .btn-cancelar { background: var(--petroleo); color: var(--naranja);  border-color: var(--petroleo); }
     .btn-garita   { background: var(--blanco);  color: var(--petroleo); border-color: var(--petroleo); }
     .btn-garita:active { background: var(--naranja); }
 
     /* FORMS */
     .form-group { margin-bottom: 14px; }
     .form-label { display: block; font-size: 10px; font-weight: 700; color: var(--gris); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+    .form-label .req { color: #c0392b; margin-left: 2px; }
     .form-input { width: 100%; padding: 11px 13px; border: 2px solid var(--gris); border-radius: 8px; font-family: 'Roboto', sans-serif; font-size: 14px; color: var(--petroleo); background: var(--blanco); outline: none; transition: border-color .2s; }
     .form-input:focus { border-color: var(--naranja); }
+    .form-input.error { border-color: #c0392b; }
     .form-hint { font-size: 11px; color: var(--gris); margin-top: 4px; }
+    .form-error { font-size: 11px; color: #c0392b; margin-top: 4px; display: none; }
+    .form-error.visible { display: block; }
     .tel-wrap { display: flex; gap: 8px; }
     .tel-pais { flex: 0 0 110px; max-width: 110px; padding: 11px 8px; border: 2px solid var(--gris); border-radius: 8px; font-family: 'Roboto', sans-serif; font-size: 13px; color: var(--petroleo); background: var(--blanco); outline: none; }
     .tel-pais:focus { border-color: var(--naranja); }
@@ -146,16 +142,16 @@
 
     /* CONFIRMACIÓN */
     .confirm-intro { font-size: 13px; color: var(--hueso); line-height: 1.7; margin-bottom: 16px; text-align: center; }
-    .confirm-intro .reserva-linea { display: block; margin-top: 8px; color: var(--lima); font-weight: 700; }
+    .confirm-intro .titulo-bold { display: block; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+    .confirm-intro .reserva-linea { display: block; color: var(--lima); font-weight: 400; margin-top: 8px; }
 
     .confirm-card { background: var(--blanco); border-radius: 14px; padding: 20px; margin-bottom: 14px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
     .confirm-brand { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; gap: 1px; }
     .confirm-brand img { width: 88px; height: 88px; object-fit: contain; }
-    .confirm-brand-sub  { font-family: 'Roboto', sans-serif; font-size: 11px; font-weight: 400; color: var(--gris); letter-spacing: 1px; line-height: 1.2; }
+    .confirm-brand-sub  { font-family: 'Roboto', sans-serif; font-size: 11px; font-weight: 400; color: #000; letter-spacing: 1px; line-height: 1.2; }
     .confirm-brand-text { font-family: Impact, sans-serif; font-size: 18px; color: #000; letter-spacing: 2px; text-transform: uppercase; line-height: 1.1; }
     .confirm-numero  { font-family: Impact, sans-serif; font-size: 36px; color: var(--petroleo); letter-spacing: 3px; margin-bottom: 6px; }
     .confirm-badge   { display: inline-block; background: var(--lima); color: var(--petroleo); font-size: 10px; font-weight: 700; letter-spacing: 2px; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
-
     .ticket-detalle { text-align: left; font-size: 12px; color: var(--gris); line-height: 1.9; }
     .ticket-detalle strong { color: var(--petroleo); }
     .ticket-sep { border: none; border-top: 1.5px solid #e0e0e0; margin: 10px 0; }
@@ -168,12 +164,12 @@
     /* POPUP */
     .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); display: none; align-items: center; justify-content: center; padding: 24px; z-index: 999; }
     .popup-overlay.show { display: flex; animation: fadeIn .25s ease; }
-    @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .popup-box { background: var(--hueso); border-radius: 16px; padding: 28px 22px; max-width: 360px; width: 100%; text-align: center; box-shadow: 0 10px 32px rgba(0,0,0,0.4); }
     .popup-icono  { font-size: 40px; margin-bottom: 8px; }
     .popup-titulo { font-family: Impact, sans-serif; font-size: 18px; color: var(--petroleo); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
     .popup-texto  { font-size: 13px; color: var(--petroleo); line-height: 1.6; margin-bottom: 20px; }
-    .popup-btn-si { display: block; width: 100%; background: var(--petroleo); color: var(--naranja); font-family: Impact, sans-serif; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 14px; border-radius: 10px; border: 2px solid var(--naranja); cursor: pointer; margin-bottom: 10px; }
+    .popup-btn-si { display: block; width: 100%; background: var(--petroleo); color: var(--naranja); font-family: Impact, sans-serif; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 14px; border-radius: 10px; border: 2px solid var(--petroleo); cursor: pointer; margin-bottom: 10px; }
     .popup-btn-no { display: block; width: 100%; background: transparent; color: var(--petroleo); font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 700; padding: 10px; border-radius: 10px; border: 2px solid var(--petroleo); cursor: pointer; }
 
     /* GARITA */
@@ -201,7 +197,6 @@
 
     .footer-bar { background: var(--petroleo); padding: 14px 16px; text-align: center; font-size: 10px; color: var(--gris); letter-spacing: 1.5px; text-transform: uppercase; width: 100%; border-top: 1px solid var(--gris); }
     .gap { height: 12px; }
-    .gap-lg { height: 24px; }
   </style>
 </head>
 <body>
@@ -212,7 +207,7 @@
     <img class="toldo-hero" src="https://i.imgur.com/1BmESsb.png" alt="La Eugenia Tienda Online">
     <div class="hero-body">
       <div class="hero-badge">
-        <div class="hero-badge-inner">La Eugenia · Club de Campo</div>
+        <div class="hero-badge-inner">LA EUGENIA</div>
       </div>
       <div class="hero-logo-wrap">
         <img class="hero-logo" src="https://i.imgur.com/Ozc2v2v.png" alt="La Eugenia Tienda Online">
@@ -226,19 +221,21 @@
     <div class="sec-title">CATÁLOGO</div>
     <div class="sec-sub">Productos disponibles en garita</div>
     <div class="grid">
-      <div class="cajon">
+      <div class="cajon" id="cajon-0">
         <span class="badge-stock">Stock: 12</span>
+        <div class="cajon-selected-badge" id="badge-sel-0"></div>
         <div class="cajon-foto">🌿</div>
         <div class="cajon-nombre">Ponchada media sombra</div>
         <div class="cajon-precio">$ —</div>
-        <button class="cajon-btn" onclick="agregar('Ponchada media sombra',0)">+ Agregar</button>
+        <button class="cajon-btn" onclick="agregar(0,'Ponchada media sombra',0)">+ Agregar</button>
       </div>
-      <div class="cajon">
+      <div class="cajon" id="cajon-1">
         <span class="badge-stock">Stock: 5</span>
+        <div class="cajon-selected-badge" id="badge-sel-1"></div>
         <div class="cajon-foto">💡</div>
         <div class="cajon-nombre">Foco LED 50W E40</div>
         <div class="cajon-precio">$ —</div>
-        <button class="cajon-btn" onclick="agregar('Foco LED 50W E40',0)">+ Agregar</button>
+        <button class="cajon-btn" onclick="agregar(1,'Foco LED 50W E40',0)">+ Agregar</button>
       </div>
       <div class="cajon sin-stock">
         <span class="badge-sin">Sin stock</span>
@@ -253,6 +250,7 @@
         <div class="cajon-nombre" style="color:var(--gris);">Próximamente</div>
       </div>
     </div>
+
     <div class="cart-bar">
       <div class="cart-bar-header">
         <span class="cart-bar-title">🛒 Mi carrito</span>
@@ -275,11 +273,9 @@
   </div>
 
   <hr class="divisor">
-
   <div class="sec-petroleo" style="padding-top:24px;">
     <a class="btn btn-cgv" href="https://clubdecampolaeugenia.taplink.site/" target="_top">IR AL CENTRO DE GESTIÓN VECINAL</a>
   </div>
-
   <div class="footer-bar">Club de Campo La Eugenia · Garupá, Misiones</div>
 </div>
 
@@ -291,17 +287,20 @@
     <span class="topbar-title">Tus datos</span>
   </div>
   <div class="sec-crema" style="flex:1;">
-    <div class="cart-resumen" id="resumen-ident"></div>
+    <div class="cart-resumen" id="resumen-ident" style="display:none;"></div>
+
     <div class="form-group">
-      <label class="form-label">Nombre y apellido *</label>
+      <label class="form-label">Nombre y apellido <span class="req">*</span></label>
       <input class="form-input" type="text" id="inp-nombre" placeholder="Ej: María González" autocomplete="name">
+      <div class="form-error" id="err-nombre">Ingresá tu nombre y apellido.</div>
     </div>
     <div class="form-group">
-      <label class="form-label">Número de lote *</label>
-      <input class="form-input" type="text" id="inp-lote" placeholder="Ej: M08">
+      <label class="form-label">Número de lote <span class="req">*</span></label>
+      <input class="form-input" type="text" id="inp-lote" placeholder="Ej: M08" maxlength="3" oninput="normalizarLote(this)">
+      <div class="form-error" id="err-lote">Ingresá el número de lote (ej: M08).</div>
     </div>
     <div class="form-group">
-      <label class="form-label">Teléfono <span style="font-weight:400;text-transform:none;font-size:10px;">(opcional)</span></label>
+      <label class="form-label">Teléfono <span class="req">*</span></label>
       <div class="tel-wrap">
         <select class="tel-pais" id="pais-cod" onchange="onPaisCod()">
           <option value="54" selected>🇦🇷 +54 9</option>
@@ -319,9 +318,10 @@
       <div id="otro-pais-wrap" style="display:none;margin-top:8px;">
         <input class="form-input" type="text" id="otro-pais-cod" placeholder="Código de país (ej: 44)" maxlength="4" oninput="soloNumeros(this)">
       </div>
-      <div class="form-hint">Si lo ingresás te mandamos el número de pedido por WhatsApp.</div>
+      <div class="form-hint">Lo usamos solo si hay algún inconveniente con tu pedido.</div>
+      <div class="form-error" id="err-tel">Ingresá un número de teléfono válido.</div>
     </div>
-    <button class="btn btn-naranja" onclick="goTo('s-pago')">CONTINUAR →</button>
+    <button class="btn btn-naranja" onclick="validarYContinuar()">CONTINUAR →</button>
   </div>
 </div>
 
@@ -333,7 +333,7 @@
     <span class="topbar-title">Forma de pago</span>
   </div>
   <div class="sec-crema" style="flex:1;">
-    <div class="cart-resumen" id="resumen-pago"></div>
+    <div class="cart-resumen" id="resumen-pago" style="display:none;"></div>
     <div class="pago-opt selected" id="opt-ef" onclick="selPago('ef')">
       <div class="pago-radio on" id="r-ef"></div>
       <div>
@@ -386,7 +386,7 @@
     </div>
 
     <div class="confirm-aviso">
-      <p>⚠️ Tus productos están reservados. Si necesitás cancelar este pedido, hacelo ahora con el botón de abajo — una vez que salgas de esta pantalla, deberás acercarte personalmente a garita.</p>
+      <p>⚠️ Tus productos quedaron reservados. Si necesitás cancelar este pedido, tocá el botón de abajo antes de salir de esta pantalla. Después de eso, deberás acercarte personalmente a garita para hacerlo.</p>
       <button class="btn btn-cancelar" onclick="mostrarPopupCancelar()">CANCELAR PEDIDO</button>
     </div>
 
@@ -411,17 +411,17 @@
       <div style="font-size:12px;color:#8B6914;line-height:1.6;">Dejá tus datos y te avisamos por WhatsApp cuando llegue el stock.</div>
     </div>
     <div class="form-group">
-      <label class="form-label">Nombre y apellido *</label>
+      <label class="form-label">Nombre y apellido <span class="req">*</span></label>
       <input class="form-input" type="text" placeholder="Ej: María González">
     </div>
     <div class="form-group">
-      <label class="form-label">Número de lote *</label>
-      <input class="form-input" type="text" placeholder="Ej: M08">
+      <label class="form-label">Número de lote <span class="req">*</span></label>
+      <input class="form-input" type="text" placeholder="Ej: M08" maxlength="3">
     </div>
     <div class="form-group">
-      <label class="form-label">Teléfono *</label>
+      <label class="form-label">Teléfono <span class="req">*</span></label>
       <input class="form-input" type="tel" placeholder="Ej: 3764 123456">
-      <div class="form-hint">Necesario para avisarte cuando llegue el stock.</div>
+      <div class="form-hint">Lo usamos solo si hay algún inconveniente con tu solicitud.</div>
     </div>
     <div class="form-group">
       <label class="form-label">¿Cuántos necesitás?</label>
@@ -557,6 +557,9 @@
   var pagoSel = 'ef';
   var datosConfirm = {};
 
+  // IDs de cajones con indicador de selección
+  var cajonesConBadge = [0, 1];
+
   function goTo(id) {
     document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
     var el = document.getElementById(id);
@@ -566,16 +569,59 @@
     if (id === 's-pago')           renderResumen('resumen-pago');
   }
 
-  function agregar(nombre, precio) {
+  function agregar(idx, nombre, precio) {
     var i = carrito.find(function(x){ return x.nombre === nombre; });
     if (i) i.qty++;
-    else carrito.push({ nombre: nombre, precio: precio, qty: 1 });
+    else carrito.push({ nombre: nombre, precio: precio, qty: 1, idx: idx });
+    actualizarBadgeCajon(idx, nombre);
     renderCarrito();
   }
 
-  function quitarUno(idx) { carrito[idx].qty--; if (carrito[idx].qty <= 0) carrito.splice(idx,1); renderCarrito(); }
-  function agregarUno(idx){ carrito[idx].qty++; renderCarrito(); }
-  function eliminar(idx)  { carrito.splice(idx,1); renderCarrito(); }
+  function actualizarBadgeCajon(idx, nombre) {
+    var badge = document.getElementById('badge-sel-' + idx);
+    if (!badge) return;
+    var item = carrito.find(function(x){ return x.nombre === nombre; });
+    if (item && item.qty > 0) {
+      badge.textContent = item.qty;
+      badge.classList.add('visible');
+    } else {
+      badge.classList.remove('visible');
+    }
+  }
+
+  function actualizarTodosBadges() {
+    carrito.forEach(function(item) {
+      if (item.idx !== undefined) actualizarBadgeCajon(item.idx, item.nombre);
+    });
+    // limpiar los que no están en carrito
+    cajonesConBadge.forEach(function(idx) {
+      var badge = document.getElementById('badge-sel-' + idx);
+      if (!badge) return;
+      var enCarrito = carrito.find(function(x){ return x.idx === idx; });
+      if (!enCarrito) badge.classList.remove('visible');
+    });
+  }
+
+  function quitarUno(idx) {
+    carrito[idx].qty--;
+    var cajonIdx = carrito[idx].idx;
+    var nombre   = carrito[idx].nombre;
+    if (carrito[idx].qty <= 0) carrito.splice(idx,1);
+    actualizarTodosBadges();
+    renderCarrito();
+  }
+
+  function agregarUno(idx) {
+    carrito[idx].qty++;
+    actualizarTodosBadges();
+    renderCarrito();
+  }
+
+  function eliminar(idx) {
+    carrito.splice(idx,1);
+    actualizarTodosBadges();
+    renderCarrito();
+  }
 
   function renderCarrito() {
     var lista   = document.getElementById('cart-lista');
@@ -630,6 +676,54 @@
     document.getElementById('btn-pagar').textContent = tipo === 'tr' ? 'YA TRANSFERÍ →' : 'CONFIRMAR PEDIDO →';
   }
 
+  function normalizarLote(el) {
+    el.value = el.value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+  }
+
+  function capitalizarNombre(val) {
+    return val.toLowerCase().replace(/(?:^|\s)\S/g, function(c){ return c.toUpperCase(); });
+  }
+
+  function validarYContinuar() {
+    var ok = true;
+    var nombre = document.getElementById('inp-nombre').value.trim();
+    var lote   = document.getElementById('inp-lote').value.trim();
+    var tel    = document.getElementById('inp-tel').value.trim();
+
+    // Nombre
+    if (nombre.length < 3) {
+      document.getElementById('err-nombre').classList.add('visible');
+      document.getElementById('inp-nombre').classList.add('error');
+      ok = false;
+    } else {
+      document.getElementById('err-nombre').classList.remove('visible');
+      document.getElementById('inp-nombre').classList.remove('error');
+      document.getElementById('inp-nombre').value = capitalizarNombre(nombre);
+    }
+
+    // Lote
+    if (lote.length < 2) {
+      document.getElementById('err-lote').classList.add('visible');
+      document.getElementById('inp-lote').classList.add('error');
+      ok = false;
+    } else {
+      document.getElementById('err-lote').classList.remove('visible');
+      document.getElementById('inp-lote').classList.remove('error');
+    }
+
+    // Teléfono
+    if (tel.length < 8) {
+      document.getElementById('err-tel').classList.add('visible');
+      document.getElementById('inp-tel').classList.add('error');
+      ok = false;
+    } else {
+      document.getElementById('err-tel').classList.remove('visible');
+      document.getElementById('inp-tel').classList.remove('error');
+    }
+
+    if (ok) goTo('s-pago');
+  }
+
   function fechaVencimiento() {
     var d = new Date();
     d.setDate(d.getDate() + 2);
@@ -640,8 +734,8 @@
 
   function confirmar() {
     var num    = 'TO-' + String(pedNum).padStart(5,'0'); pedNum++;
-    var nombre = document.getElementById('inp-nombre').value.trim() || '—';
-    var lote   = document.getElementById('inp-lote').value.trim() || '—';
+    var nombre = document.getElementById('inp-nombre').value.trim();
+    var lote   = document.getElementById('inp-lote').value.trim();
     var total  = carrito.reduce(function(a,i){ return a + i.precio*i.qty; }, 0);
     var items  = carrito.map(function(i){ return { nombre: i.nombre, qty: i.qty, precio: i.precio }; });
     var vence  = fechaVencimiento();
@@ -651,10 +745,11 @@
     document.getElementById('num-ped').textContent = num;
     document.getElementById('badge-tipo').textContent = pagoSel === 'ef' ? 'EFECTIVO' : 'TRANSFERENCIA';
 
-    // Intro
-    var intro = '¡Tu compra está confirmada! A continuación encontrás tu ticket. Podés enviártelo por WhatsApp o hacer una captura de pantalla para mostrárselo al guardia al retirar.';
+    // Intro — primera línea en negrita, reserva en lima separada
+    var intro = '<span class="titulo-bold">¡Tu pedido está confirmado!</span>' +
+      'Guardá tu ticket o enviátelo por WhatsApp para mostrárselo al guardia al retirar.';
     if (pagoSel === 'ef') {
-      intro += '<span class="reserva-linea">Tus productos están reservados hasta el ' + vence + ' (inclusive).</span>';
+      intro += '<span class="reserva-linea">Tus productos estarán reservados hasta el ' + vence + ' (inclusive).</span>';
     }
     document.getElementById('confirm-intro-texto').innerHTML = intro;
 
@@ -663,9 +758,7 @@
       return '<div class="ticket-row"><span>' + i.qty + '× ' + i.nombre + '</span>' +
         (i.precio > 0 ? '<span>$ ' + (i.precio * i.qty).toLocaleString('es-AR') + '</span>' : '') + '</div>';
     }).join('');
-
     var pickup = pagoSel === 'ef' ? 'Hasta el ' + vence + ' (inclusive)' : 'Sin vencimiento';
-
     document.getElementById('det-confirm').innerHTML =
       itemsHtml +
       '<hr class="ticket-sep">' +
@@ -674,9 +767,10 @@
       '<div class="ticket-row"><span>Pago</span><span>' + (pagoSel === 'ef' ? 'Efectivo' : 'Transferencia') + '</span></div>' +
       '<div class="ticket-row"><span>Reserva</span><span>' + pickup + '</span></div>';
 
-    carrito = []; renderCarrito();
+    carrito = []; actualizarTodosBadges(); renderCarrito();
     goTo('s-confirmacion');
 
+    // WhatsApp datos pedido
     document.getElementById('btn-wsp-confirm').onclick = function() {
       var itemsTexto = datosConfirm.items.map(function(i){
         return i.qty + '× ' + i.nombre + (i.precio > 0 ? ' — $' + (i.precio*i.qty).toLocaleString('es-AR') : '');
@@ -691,8 +785,11 @@
       window.location.href = 'https://wa.me/?text=' + encodeURIComponent(msg);
     };
 
+    // WhatsApp garita con datos del pedido
     document.getElementById('btn-garita-ticket').onclick = function() {
-      window.location.href = 'https://wa.me/5493764113300?text=' + encodeURIComponent('Hola, tengo una consulta sobre mi pedido ' + datosConfirm.num + '.');
+      var msg = 'Hola, tengo una consulta sobre mi pedido *' + datosConfirm.num + '*.\n' +
+        'Soy ' + datosConfirm.nombre + ', Lote ' + datosConfirm.lote + '.';
+      window.location.href = 'https://wa.me/5493764113300?text=' + encodeURIComponent(msg);
     };
   }
 

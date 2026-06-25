@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="theme-color" content="#135457"/>
-  <title>La Eugenia Tienda Online</title>
+  <title>La Tienda del Club — La Eugenia</title>
   <link rel="icon" type="image/png" href="https://i.imgur.com/Ks7x1sS.png"/>
   <link rel="apple-touch-icon" href="https://i.imgur.com/Ks7x1sS.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
@@ -35,14 +35,14 @@
     /* HERO */
     .hero { background: var(--petroleo); width: 100%; }
     .toldo-hero { width: 100%; display: block; }
-    .hero-body { padding: 10px 0 24px; }
+    .hero-body { padding: 0 0 24px; }
 
     /* BADGE */
     .hero-badge { display: flex; justify-content: center; margin-bottom: 14px; }
     .hero-badge-inner { background: var(--lima); border-radius: 4px; padding: 3px 12px; font-family: 'Roboto', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 2px; color: var(--petroleo); text-transform: uppercase; }
 
     /* LOGO */
-    .hero-logo-wrap { display: flex; justify-content: center; padding: 0 6%; }
+    .hero-logo-wrap { display: flex; justify-content: center; padding: 0 4%; }
     .hero-logo { width: 100%; display: block; }
     .hero-desc { color: var(--hueso); font-size: 13px; line-height: 1.7; margin-top: 14px; margin-bottom: 8px; padding: 0 18px; }
     .hero-inst { color: var(--lima); font-size: 12px; font-style: italic; line-height: 1.6; padding: 0 18px; }
@@ -207,12 +207,12 @@
 <!-- ══ HOME ══ -->
 <div class="screen active" id="s-home">
   <div class="hero">
-    <img class="toldo-hero" src="https://i.imgur.com/1BmESsb.png" alt="La Eugenia Tienda Online">
+    <img class="toldo-hero" src="https://i.imgur.com/1BmESsb.png" alt="La Tienda del Club">
     <div class="hero-body">
       <div class="hero-logo-wrap">
-        <img class="hero-logo" src="https://i.imgur.com/mGr7Zx2.png" alt="La Eugenia Tienda Online">
+        <img class="hero-logo" src="https://i.imgur.com/ft05i90.png" alt="La Tienda del Club">
       </div>
-      <p class="hero-desc">La Tienda Online del Club pone a disposición de los socios productos que representan un aporte individual y, al mismo tiempo, una contribución colectiva para seguir mejorando nuestro entorno.</p>
+      <p class="hero-desc">La Tienda del Club pone a disposición de los socios productos que representan un aporte individual y, al mismo tiempo, una contribución colectiva para seguir mejorando nuestro entorno.</p>
       <p class="hero-inst">Elegí los productos disponibles, realizá tu pedido y retiralo en la garita.</p>
     </div>
   </div>
@@ -373,12 +373,12 @@
 
     <div class="confirm-card">
       <div class="confirm-brand">
-        <img src="https://i.imgur.com/Ks7x1sS.png" alt="La Eugenia Tienda Online">
+        <img src="https://i.imgur.com/Ks7x1sS.png" alt="La Tienda del Club">
         <span class="confirm-brand-sub">La Eugenia</span>
-        <span class="confirm-brand-text">TIENDA ONLINE</span>
+        <span class="confirm-brand-text">LA TIENDA DEL CLUB</span>
       </div>
       <div style="font-size:11px;color:var(--gris);margin-bottom:4px;letter-spacing:1px;text-transform:uppercase;">Número de pedido</div>
-      <div class="confirm-numero" id="num-ped">TO-00001</div>
+      <div class="confirm-numero" id="num-ped">TClub Nº000001</div>
       <div class="confirm-badge" id="badge-tipo">EFECTIVO</div>
       <div class="ticket-detalle" id="det-confirm"></div>
       <hr class="ticket-sep" style="margin-top:14px;margin-bottom:12px;">
@@ -446,7 +446,7 @@
     <div class="sec-sub">Pendientes de entrega</div>
     <div class="pedido-card transf">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-        <div class="pedido-num">TO-00042</div>
+        <div class="pedido-num">TClub Nº000042</div>
         <span class="pedido-estado est-conf">Transferencia ✓</span>
       </div>
       <div class="pedido-socio">Juan Pérez · Lote M87 · 3764 112233</div>
@@ -459,7 +459,7 @@
     </div>
     <div class="pedido-card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-        <div class="pedido-num">TO-00043</div>
+        <div class="pedido-num">TClub Nº000043</div>
         <span class="pedido-estado est-pend">Efectivo · vence 26/06</span>
       </div>
       <div class="pedido-socio">Ana Torres · Lote B23</div>
@@ -735,7 +735,7 @@
   }
 
   function confirmar() {
-    var num    = 'TO-' + String(pedNum).padStart(5,'0'); pedNum++;
+    var num    = 'TClub Nº' + String(pedNum).padStart(6,'0'); pedNum++;
     var nombre = document.getElementById('inp-nombre').value.trim();
     var lote   = document.getElementById('inp-lote').value.trim();
     var total  = carrito.reduce(function(a,i){ return a + i.precio*i.qty; }, 0);
@@ -778,7 +778,7 @@
       var itemsTexto = datosConfirm.items.map(function(i){
         return i.qty + '× ' + i.nombre + (i.precio > 0 ? ' — $' + (i.precio*i.qty).toLocaleString('es-AR') : '');
       }).join('\n');
-      var msg = '🛍️ *La Eugenia Tienda Online*\n\n' +
+      var msg = '🛍️ *La Tienda del Club*\n\n' +
         'Pedido: *' + datosConfirm.num + '*\n' +
         'Socio: ' + datosConfirm.nombre + ' · Lote ' + datosConfirm.lote + '\n\n' +
         itemsTexto + '\n\n' +

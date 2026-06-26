@@ -58,11 +58,13 @@
 
     /* GRILLA */
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-bottom: 14px; }
-    .cajon { background: var(--blanco); border: 2px solid var(--petroleo); border-radius: 10px; padding: 14px 10px 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; }
+    .cajon { background: var(--blanco); border: 2px solid var(--petroleo); border-radius: 10px; padding: 14px 10px 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; justify-content: space-between; min-height: 220px; }
     .cajon-foto   { font-size: 32px; }
-    .cajon-nombre { font-size: 12px; font-weight: 700; color: var(--petroleo); text-transform: uppercase; letter-spacing: .5px; line-height: 1.3; }
+    .cajon-body   { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+    .cajon-nombre-1 { font-size: 12px; font-weight: 700; color: var(--petroleo); text-transform: uppercase; letter-spacing: .5px; line-height: 1.3; }
+    .cajon-nombre-2 { font-size: 11px; font-weight: 400; color: var(--gris); line-height: 1.3; }
     .cajon-precio { font-size: 14px; font-weight: 700; color: var(--blanco); background: var(--petroleo); padding: 3px 12px; border-radius: 20px; }
-    .cajon-btn    { background: var(--naranja); border: 2px solid var(--petroleo); border-radius: 8px; font-family: Impact, sans-serif; font-size: 11px; letter-spacing: 1px; color: var(--petroleo); padding: 6px; cursor: pointer; width: 100%; text-transform: uppercase; }
+    .cajon-btn    { background: var(--naranja); border: 2px solid var(--petroleo); border-radius: 8px; font-family: Impact, sans-serif; font-size: 11px; letter-spacing: 1px; color: var(--petroleo); padding: 6px; cursor: pointer; width: 100%; text-transform: uppercase; margin-top: auto; }
     .badge-stock  { position: absolute; top: 7px; left: 7px; background: var(--lima); color: var(--petroleo); font-size: 8px; font-weight: 700; padding: 2px 6px; border-radius: 10px; }
     .cajon.sin-stock { filter: grayscale(1); opacity: .6; }
     .badge-sin    { position: absolute; top: 7px; left: 7px; background: #c0392b; color: #fff; font-size: 8px; font-weight: 700; padding: 2px 6px; border-radius: 10px; }
@@ -210,10 +212,10 @@
     <img class="toldo-hero" src="https://i.imgur.com/1BmESsb.png" alt="El Almacén del Club">
     <div class="hero-body">
       <div class="hero-logo-wrap">
-        <img class="hero-logo" src="https://i.imgur.com/ezj8309.png" alt="El Almacén del Club">
+        <img class="hero-logo" src="https://i.imgur.com/ffjFtEW.png" alt="El Almacén del Club">
       </div>
-      <p class="hero-desc">El Almacén del Club pone a disposición de los socios productos que representan un aporte individual y, al mismo tiempo, una contribución colectiva para seguir mejorando nuestro entorno.</p>
-      <p class="hero-inst">Elegí los productos disponibles, realizá tu pedido y retiralo en la garita.</p>
+      <p class="hero-desc">El Almacén del Club facilita a los socios el acceso ágil a una selección de productos e insumos útiles para el cuidado, el orden y la mejora de nuestro entorno</p>
+      <p class="hero-inst">Elegí los productos disponibles, realizá tu pedido y retiralo en la garita</p>
     </div>
   </div>
 
@@ -225,45 +227,59 @@
         <span class="badge-stock">Stock: 12</span>
         <div class="cajon-selected-badge" id="badge-sel-0"></div>
         <div class="cajon-foto"><img src="https://i.imgur.com/cZ3q0Lo.png" style="width:84px;height:84px;object-fit:contain;"></div>
-        <div class="cajon-nombre">Ponchada media sombra</div>
-        <div class="cajon-precio">$ 4.000</div>
-        <button class="cajon-btn" onclick="agregar(0,'Ponchada media sombra',4000)">+ Agregar</button>
+        <div class="cajon-body">
+          <div class="cajon-nombre-1">Ponchada</div>
+          <div class="cajon-nombre-2">Media Sombra</div>
+          <div class="cajon-precio">$ 4.000</div>
+        </div>
+        <button class="cajon-btn" onclick="agregar(0,'Ponchada Media Sombra',4000)">+ Agregar</button>
       </div>
       <div class="cajon" id="cajon-1">
         <span class="badge-stock">Stock: 5</span>
         <div class="cajon-selected-badge" id="badge-sel-1"></div>
         <div class="cajon-foto"><img src="https://i.imgur.com/3WkACKc.png" style="width:84px;height:84px;object-fit:contain;"></div>
-        <div class="cajon-nombre">Foco LED 50W E40</div>
-        <div class="cajon-precio">$ 15.000</div>
-        <button class="cajon-btn" onclick="agregar(1,'Foco LED 50W E40',15000)">+ Agregar</button>
+        <div class="cajon-body">
+          <div class="cajon-nombre-1">Foco Alum. Pub.</div>
+          <div class="cajon-nombre-2">Led 50w E40</div>
+          <div class="cajon-precio">$ 15.000</div>
+        </div>
+        <button class="cajon-btn" onclick="agregar(1,'Foco Alum. Pub. Led 50w E40',15000)">+ Agregar</button>
       </div>
       <div class="cajon sin-stock">
         <span class="badge-sin">Sin stock</span>
         <div class="cajon-foto"><img src="https://i.imgur.com/a4lfVw2.png" style="width:84px;height:84px;object-fit:contain;"></div>
-        <div class="cajon-nombre">Cartel alerta vecinal</div>
-        <div class="cajon-precio" style="background:#aaa;">$ 10.000</div>
-        <button class="cajon-btn" style="background:#ccc;border-color:#aaa;color:#888;cursor:default;">Sin stock</button>
-        <button class="espera-btn" onclick="goTo('s-espera')">Avisame cuando llegue</button>
+        <div class="cajon-body">
+          <div class="cajon-nombre-1">Cartel</div>
+          <div class="cajon-nombre-2">Alerta Vecinal</div>
+          <div class="cajon-precio" style="background:#aaa;">$ 10.000</div>
+        </div>
+        <button class="cajon-btn" style="background:var(--naranja);border-color:var(--petroleo);color:var(--petroleo);cursor:pointer;filter:none;" onclick="goTo('s-espera')">Avisame cuando ingresen</button>
       </div>
       <div class="cajon" id="cajon-2">
         <span class="badge-stock">Stock: 8</span>
         <div class="cajon-selected-badge" id="badge-sel-2"></div>
         <div class="cajon-foto"><img src="https://i.imgur.com/BHMmfMH.png" style="width:84px;height:84px;object-fit:contain;"></div>
-        <div class="cajon-nombre">Bolson Big Bag 90×90×90</div>
-        <div class="cajon-precio">$ 15.000</div>
+        <div class="cajon-body">
+          <div class="cajon-nombre-1">Bolson Big Bag</div>
+          <div class="cajon-nombre-2">90×90×90</div>
+          <div class="cajon-precio">$ 15.000</div>
+        </div>
         <button class="cajon-btn" onclick="agregar(2,'Bolson Big Bag 90×90×90',15000)">+ Agregar</button>
       </div>
       <div class="cajon" id="cajon-3">
         <span class="badge-stock">Stock: 20</span>
         <div class="cajon-selected-badge" id="badge-sel-3"></div>
         <div class="cajon-foto"><img src="https://i.imgur.com/EpMG4Zb.png" style="width:84px;height:84px;object-fit:contain;"></div>
-        <div class="cajon-nombre">Sticker Vehicular (Seguridad)</div>
-        <div class="cajon-precio">$ 5.000</div>
+        <div class="cajon-body">
+          <div class="cajon-nombre-1">Sticker Vehicular</div>
+          <div class="cajon-nombre-2">Seguridad</div>
+          <div class="cajon-precio">$ 5.000</div>
+        </div>
         <button class="cajon-btn" onclick="agregar(3,'Sticker Vehicular (Seguridad)',5000)">+ Agregar</button>
       </div>
-      <div class="cajon" style="border-style:dashed;border-color:var(--verdecl);opacity:.4;cursor:default;">
+      <div class="cajon" style="border-style:dashed;border-color:var(--verdecl);opacity:.4;cursor:default;min-height:220px;">
         <div class="cajon-foto" style="opacity:.3;font-size:22px;">+</div>
-        <div class="cajon-nombre" style="color:var(--gris);">Próximamente</div>
+        <div class="cajon-body"><div class="cajon-nombre-1" style="color:var(--gris);">Próximamente</div></div>
       </div>
     </div>
 
@@ -334,7 +350,7 @@
       <div id="otro-pais-wrap" style="display:none;margin-top:8px;">
         <input class="form-input" type="text" id="otro-pais-cod" placeholder="Código de país (ej: 44)" maxlength="4" oninput="soloNumeros(this)">
       </div>
-      <div class="form-hint">Lo usamos solo si hay algún inconveniente con tu pedido.</div>
+      <div class="form-hint">Lo usamos solo si hay algún inconveniente con tu pedido</div>
       <div class="form-error" id="err-tel">Ingresá un número de teléfono válido.</div>
     </div>
     <button class="btn btn-naranja" onclick="validarYContinuar()">CONTINUAR →</button>
@@ -354,14 +370,14 @@
       <div class="pago-radio on" id="r-ef"></div>
       <div>
         <div class="pago-titulo">Efectivo al retirar</div>
-        <div class="pago-desc">Pagás cuando venís a buscar el producto a garita. El pedido se reserva por 48 horas.</div>
+        <div class="pago-desc">Pagás cuando venís a buscar el producto a garita — el pedido se reserva por 48 horas</div>
       </div>
     </div>
     <div class="pago-opt" id="opt-tr" onclick="selPago('tr')">
       <div class="pago-radio" id="r-tr"></div>
       <div>
         <div class="pago-titulo">Transferencia bancaria</div>
-        <div class="pago-desc">Transferís y mandás el comprobante al grupo de garita. Sin límite de tiempo para retirar.</div>
+        <div class="pago-desc">Transferís y mandás el comprobante al grupo de garita — sin límite de tiempo para retirar</div>
       </div>
     </div>
     <div id="datos-banco" style="display:none;">
@@ -370,7 +386,7 @@
         <div class="banco-row"><span class="banco-label">CBU</span><span class="banco-val">1910229855022900048696</span></div>
         <div class="banco-row"><span class="banco-label">CUIT</span><span class="banco-val">30-63417128-9</span></div>
       </div>
-      <p style="font-size:12px;color:var(--gris);line-height:1.6;margin-bottom:12px;">Transferí el monto exacto y luego confirmá el pedido para notificar a garita.</p>
+      <p style="font-size:12px;color:var(--gris);line-height:1.6;margin-bottom:12px;">Transferí el monto exacto y luego confirmá el pedido para notificar a garita</p>
     </div>
     <button class="btn btn-naranja" id="btn-pagar" onclick="confirmar()">CONFIRMAR PEDIDO →</button>
   </div>
@@ -389,7 +405,7 @@
 
     <div class="confirm-card">
       <div class="confirm-brand">
-        <img src="https://i.imgur.com/bAgbxnB.png" alt="El Almacén del Club — La Eugenia" style="width:398px;object-fit:contain;">
+        <img src="https://i.imgur.com/1uomvjV.png" alt="El Almacén del Club — La Eugenia" style="width:796px;object-fit:contain;filter:brightness(0);">
       </div>
       <div style="font-size:11px;color:var(--gris);margin-bottom:4px;letter-spacing:1px;text-transform:uppercase;">Número de pedido</div>
       <div class="confirm-numero" id="num-ped">AC N° 000001</div>
@@ -407,7 +423,7 @@
     </div>
 
     <div class="gap"></div>
-    <p style="font-size:11px;color:var(--verdecl);text-align:center;line-height:1.6;">Para cualquier particularidad en el retiro podés contactar a la garita.</p>
+    <p style="font-size:11px;color:var(--verdecl);text-align:center;line-height:1.6;">Para cualquier particularidad en el retiro podés contactar a la garita</p>
     <div class="gap"></div>
     <button class="btn btn-garita" id="btn-garita-ticket">📲 ESCRIBIR A GARITA</button>
 
@@ -424,7 +440,7 @@
   <div class="sec-crema" style="flex:1;">
     <div style="background:#fff3cc;border:1px solid var(--naranja);border-radius:10px;padding:13px;margin-bottom:18px;">
       <div style="font-size:12px;font-weight:700;color:#8B6914;margin-bottom:4px;">⚠️ Cartel alerta vecinal — Sin stock</div>
-      <div style="font-size:12px;color:#8B6914;line-height:1.6;">Dejá tus datos y te avisamos por WhatsApp cuando llegue el stock.</div>
+      <div style="font-size:12px;color:#8B6914;line-height:1.6;">Dejá tus datos y te avisamos por WhatsApp cuando llegue el stock</div>
     </div>
     <div class="form-group">
       <label class="form-label">Nombre y apellido <span class="req">*</span></label>
@@ -437,7 +453,7 @@
     <div class="form-group">
       <label class="form-label">Teléfono <span class="req">*</span></label>
       <input class="form-input" type="tel" placeholder="Ej: 3764 123456">
-      <div class="form-hint">Lo usamos solo si hay algún inconveniente con tu solicitud.</div>
+      <div class="form-hint">Lo usamos solo si hay algún inconveniente con tu solicitud</div>
     </div>
     <div class="form-group">
       <label class="form-label">¿Cuántos necesitás?</label>
@@ -455,7 +471,7 @@
     <span class="topbar-title">Panel Garita</span>
   </div>
   <div class="sec-crema" style="flex:1;">
-    <div class="aviso-garita">📋 <strong>Recordatorio:</strong> Verificar stock físico y actualizar si hay diferencias.</div>
+    <div class="aviso-garita">📋 <strong>Recordatorio:</strong> Verificar stock físico y actualizar si hay diferencias</div>
     <div class="sec-title">PEDIDOS ACTIVOS</div>
     <div class="sec-sub">Pendientes de entrega</div>
     <div class="pedido-card transf">
@@ -561,7 +577,7 @@
   <div class="popup-box">
     <div class="popup-icono">🗑️</div>
     <div class="popup-titulo">Cancelar pedido</div>
-    <p class="popup-texto">¿Estás seguro? El pedido se eliminará y los productos volverán al stock disponible.</p>
+    <p class="popup-texto">¿Estás seguro? El pedido se eliminará y los productos volverán al stock disponible</p>
     <button class="popup-btn-si" onclick="ejecutarCancelacion()">SÍ, CANCELAR PEDIDO</button>
     <button class="popup-btn-no" onclick="cerrarPopup('popup-cancelar')">No, volver al ticket</button>
   </div>
@@ -778,8 +794,8 @@
     var pickup = pagoSel === 'ef' ? 'Hasta el ' + vence + '' : 'Sin vencimiento';
     document.getElementById('det-confirm').innerHTML =
       itemsHtml +
+      '<div class="ticket-row" style="margin-bottom:8px;"><strong>Total</strong><strong>' + (total > 0 ? '$ ' + total.toLocaleString('es-AR') : '—') + '</strong></div>' +
       '<hr class="ticket-sep">' +
-      '<div class="ticket-row"><strong>Total</strong><strong>' + (total > 0 ? '$ ' + total.toLocaleString('es-AR') : '—') + '</strong></div>' +
       '<div class="ticket-row"><span>Socio</span><span>' + nombre + ' · Lote ' + lote + '</span></div>' +
       '<div class="ticket-row"><span>Pago</span><span>' + (pagoSel === 'ef' ? 'Efectivo' : 'Transferencia') + '</span></div>' +
       '<div class="ticket-row"><span>Reserva</span><span>' + pickup + '</span></div>';

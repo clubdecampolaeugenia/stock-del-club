@@ -391,9 +391,14 @@
   </div>
   <div class="sec-crema" style="flex:1;padding-bottom:28px;">
     <div class="cart-resumen" id="resumen-pago" style="display:none;"></div>
-    <div style="background:var(--blanco);border:2px solid var(--petroleo);border-radius:10px;padding:14px;margin-bottom:14px;">
+    <div style="background:var(--blanco);border:2px solid var(--petroleo);border-radius:10px;padding:14px;margin-bottom:12px;">
       <div style="font-size:13px;font-weight:700;color:var(--petroleo);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Efectivo al retirar</div>
       <div style="font-size:12px;color:var(--gris);line-height:1.5;">Se abona en efectivo contra entrega en garita — el pedido queda reservado por 48 horas</div>
+    </div>
+    <div style="background:var(--blanco);border:2px solid #bbb;border-radius:10px;padding:14px;margin-bottom:14px;opacity:.5;filter:grayscale(1);position:relative;">
+      <div style="position:absolute;top:10px;right:10px;background:#888;color:#fff;font-size:9px;font-weight:700;letter-spacing:1.5px;padding:2px 8px;border-radius:10px;text-transform:uppercase;">Próximamente</div>
+      <div style="font-size:13px;font-weight:700;color:var(--petroleo);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Transferencia bancaria</div>
+      <div style="font-size:12px;color:var(--gris);line-height:1.5;">Esta opción estará disponible próximamente</div>
     </div>
     <button class="btn btn-naranja" id="btn-pagar" onclick="confirmar()">CONFIRMAR PEDIDO →</button>
   </div>
@@ -719,10 +724,15 @@
   </div>
   <div class="sec-crema" style="flex:1;">
     <div id="depo-selbar-pago" style="background:var(--verdecl);border:2px solid var(--petroleo);border-radius:10px;padding:12px 14px;margin-bottom:14px;"></div>
-    <div style="background:var(--blanco);border:2px solid var(--petroleo);border-radius:10px;padding:14px;margin-bottom:14px;">
+    <div style="background:var(--blanco);border:2px solid var(--petroleo);border-radius:10px;padding:14px;margin-bottom:12px;">
       <div style="font-size:13px;font-weight:700;color:var(--petroleo);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Efectivo al retirar</div>
       <div style="font-size:12px;color:var(--gris);line-height:1.5;">Se abona en efectivo contra entrega en garita</div>
       <div style="font-size:12px;color:var(--gris);line-height:1.5;margin-top:4px;">Una vez reservados los números quedan bloqueados por 7 días</div>
+    </div>
+    <div style="background:var(--blanco);border:2px solid #bbb;border-radius:10px;padding:14px;margin-bottom:14px;opacity:.5;filter:grayscale(1);position:relative;">
+      <div style="position:absolute;top:10px;right:10px;background:#888;color:#fff;font-size:9px;font-weight:700;letter-spacing:1.5px;padding:2px 8px;border-radius:10px;text-transform:uppercase;">Próximamente</div>
+      <div style="font-size:13px;font-weight:700;color:var(--petroleo);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Transferencia bancaria</div>
+      <div style="font-size:12px;color:var(--gris);line-height:1.5;">Esta opción estará disponible próximamente</div>
     </div>
     <button class="btn btn-naranja" onclick="depoConfirmar()">Confirmar reserva →</button>
   </div>

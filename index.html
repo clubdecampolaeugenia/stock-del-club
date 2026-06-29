@@ -112,7 +112,7 @@
     .btn-cgv      { background: var(--lima);    color: var(--petroleo); border-color: var(--petroleo); }
     .btn-lima-out { background: transparent;    color: var(--lima);     border-color: var(--lima); }
     .btn-blanco   { background: var(--blanco);  color: var(--petroleo); border-color: var(--petroleo); }
-    .btn-cancelar { background: var(--petroleo); color: var(--hueso);  border-color: var(--hueso); }
+    .btn-cancelar { background: var(--petroleo); color: var(--hueso);  border-color: var(--petroleo); border: none; }
     .btn-garita   { background: var(--blanco);  color: var(--petroleo); border-color: var(--petroleo); }
     .btn-garita:active { background: var(--naranja); }
 
@@ -147,8 +147,8 @@
 
     /* CONFIRMACIÓN */
     .confirm-intro { font-size: 14px; color: var(--hueso); line-height: 1.7; margin-bottom: 16px; text-align: center; }
-    .confirm-intro .titulo-bold { display: block; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
-    .confirm-intro .reserva-linea { display: block; color: var(--lima); font-weight: 400; margin-top: 8px; }
+    .confirm-intro .titulo-bold { display: block; font-family: Impact, sans-serif; font-weight: 400; font-size: 15px; letter-spacing: 1px; color: var(--lima); margin-bottom: 6px; text-transform: uppercase; }
+    .confirm-intro .reserva-linea { display: block; color: var(--hueso); font-weight: 400; margin-top: 8px; font-size: 13px; }
 
     .confirm-card { background: var(--blanco); border-radius: 14px; padding: 20px; margin-bottom: 14px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
     .confirm-brand { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; gap: 1px; }
@@ -748,7 +748,7 @@
       <div id="depo-ticket-detalle" style="text-align:left;font-size:11px;color:var(--gris);line-height:2;"></div>
       <!-- Pie del ticket -->
       <div style="margin-top:12px;"><button class="btn btn-naranja" id="depo-btn-wsp" style="font-size:13px;">📲 Enviarme los datos por WhatsApp</button></div>
-      <div style="margin-top:10px;font-size:9px;color:var(--gris);font-style:italic;line-height:1.4;">El talón físico puede retirarse en garita al momento del pago</div>
+      <div style="margin-top:10px;font-size:9px;color:var(--gris);font-style:italic;line-height:1.4;">El talón físico debe retirarse en garita al momento del pago</div>
       <div style="margin-top:6px;font-size:10px;color:var(--gris);letter-spacing:.5px;">La Eugenia · Club de Campo</div>
     </div>
 
@@ -757,7 +757,6 @@
       <p style="margin-bottom:10px;">⚠️ Tus números están reservados — si necesitás cancelar, hacelo antes de salir de esta pantalla o acercate a garita en persona</p>
       <button onclick="depoCancelarTicket()" style="width:100%;background:var(--petroleo);color:var(--hueso);border:none;border-radius:8px;font-family:Impact,sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:10px;cursor:pointer;">CANCELAR RESERVA</button>
     </div>
-    <button class="btn btn-naranja" id="depo-btn-wsp">📲 Enviarme los datos por WhatsApp</button>
     <div style="height:8px;"></div>
     <button class="btn btn-garita" id="depo-btn-garita">Escribir a garita</button>
   </div>
@@ -1136,13 +1135,31 @@
   function depoRenderSelbar(elId) {
     var el = document.getElementById(elId);
     if (!el) return;
+    var conCruz = elId === 'depo-selbar-datos';
     var html = '<div style="font-family:Impact,sans-serif;font-size:12px;color:var(--petroleo);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;"><span>Mi selección</span><span style="font-size:10px;font-weight:400;font-family:Roboto,sans-serif;">'+depoSeleccion.length+' bono'+(depoSeleccion.length!==1?'s':'')+'</span></div>';
     if (depoSeleccion.length === 0) html += '<div style="font-size:11px;color:var(--gris);text-align:center;padding:4px 0;">Todavía no elegiste ningún número</div>';
     else {
-      html += depoSeleccion.map(function(n){ return '<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><span style="font-family:Impact,sans-serif;font-size:12px;background:var(--petroleo);color:var(--lima);padding:2px 8px;border-radius:4px;letter-spacing:1px;">'+n+'</span><span style="font-size:11px;color:var(--gris);">Deporbono 2026 · $5.000</span></div>'; }).join('');
+      html += depoSeleccion.map(function(n){
+        var cruz = conCruz
+          ? '<button onclick="depoToggleYRefresh(''+n+'',''+elId+'')" style="background:var(--petroleo);border:none;color:var(--lima);font-size:14px;font-weight:700;cursor:pointer;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0;">&#10005;</button>'
+          : '';
+        return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">' +
+          '<span style="font-family:Impact,sans-serif;font-size:14px;background:var(--petroleo);color:var(--lima);padding:3px 10px;border-radius:4px;letter-spacing:1px;flex-shrink:0;">'+n+'</span>' +
+          '<span style="font-size:14px;font-weight:700;color:var(--petroleo);flex:1;text-align:center;">$5.000</span>' +
+          cruz +
+          '</div>';
+      }).join('');
       html += '<div style="font-family:Impact,sans-serif;font-size:15px;color:var(--petroleo);display:flex;justify-content:space-between;border-top:1.5px solid var(--petroleo);padding-top:6px;margin-top:8px;"><span>Total</span><span>$ '+(depoSeleccion.length*5000).toLocaleString('es-AR')+'</span></div>';
     }
     el.innerHTML = html;
+  }
+
+  function depoToggleYRefresh(n, elId) {
+    var idx = depoSeleccion.indexOf(n);
+    if (idx >= 0) depoSeleccion.splice(idx, 1);
+    depoRenderSelbar(elId);
+    // Si queda vacío volver a la selección
+    if (depoSeleccion.length === 0) goTo('s-deporbono');
   }
 
   function depoBuscarLive() {
